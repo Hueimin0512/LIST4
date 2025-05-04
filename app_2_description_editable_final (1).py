@@ -43,10 +43,10 @@ if "df" not in st.session_state:
         st.session_state.df = pd.read_csv(DATA_FILE)
     else:
         st.session_state.df = pd.DataFrame(columns=[
-            "ITEM", "DESCRIPTION", "STANDARD WEIGHT PER BAG", 
-            "NO OF BAG PER PALLET", "QUANTITY NO OF PELLET", 
-            "QUANTITY NO OF BAG ITEM", "TOTAL", "TOTAL WEIGHT", "remark"
-        ])
+        "ITEM", "DESCRIPTION", "STANDARD WEIGHT PER BAG",
+        "NO OF BAG PER PALLET", "QUANTITY NO OF PELLET",
+        "QUANTITY NO OF BAG ITEM", "TOTAL", "TOTAL WEIGHT", "remark"
+        ])
 
 # 输入栏
 st.header("输入点货资料")
