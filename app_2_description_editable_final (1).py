@@ -95,9 +95,9 @@ if st.button("添加记录"):
     st.session_state.df.to_csv(DATA_FILE, index=False)  # 自动保存
     st.success("已添加并保存！")
 
-# 显示表格
+# 显示表格（手机端友好横排版 & 去掉左侧索引）
 st.header("记录总览")
-st.table(st.session_state.df)  # 👈 用 table，不多一行
+st.dataframe(st.session_state.df.style.hide(axis="index"), use_container_width=True)
 
 # 下载按钮 (Excel 版)
 def to_excel(df):
