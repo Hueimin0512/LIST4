@@ -96,8 +96,8 @@ if st.button("添加记录"):
     st.success("已添加并保存！")
 
 # 显示表格（手机端友好横排版 & 去掉左侧索引）
-st.header("记录总览")
-st.table(st.session_state.df)
+if not st.session_state.df.empty:
+    st.markdown(st.session_state.df.to_html(index=False), unsafe_allow_html=True)
 
 # 下载按钮 (Excel 版)
 def to_excel(df):
