@@ -43,18 +43,13 @@ if "df" not in st.session_state:
         st.session_state.df = pd.read_csv(DATA_FILE)
     else:
         st.session_state.df = pd.DataFrame(columns=[
-        "ITEM", "DESCRIPTION", "STANDARD WEIGHT PER BAG",
-        "NO OF BAG PER PALLET", "QUANTITY NO OF PELLET",
-        "QUANTITY NO OF BAG ITEM", "TOTAL", "TOTAL WEIGHT", "remark"
-        ])
+            "ITEM", "DESCRIPTION", "STANDARD WEIGHT PER BAG",
+            "NO OF BAG PER PALLET", "QUANTITY NO OF PELLET",
+            "QUANTITY NO OF BAG ITEM", "TOTAL", "TOTAL WEIGHT", "remark"
+        ])
 
 # 输入栏
 st.header("输入点货资料")
-st.dataframe(
-    st.session_state.df,
-    use_container_width=True,
-    hide_index=True  # 隐藏左侧默认行号
-)
 
 # 下拉+手动输入 DESCRIPTION
 description = st.selectbox("DESCRIPTION (可选或手动输入)", options=[""] + description_options)
@@ -102,7 +97,7 @@ if st.button("添加记录"):
 
 # 显示表格
 st.header("记录总览")
-st.dataframe(st.session_state.df)
+st.table(st.session_state.df)  # 👈 用 table，不多一行
 
 # 下载按钮 (Excel 版)
 def to_excel(df):
