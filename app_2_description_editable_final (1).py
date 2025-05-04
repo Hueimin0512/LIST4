@@ -50,11 +50,6 @@ if "df" not in st.session_state:
 
 # 输入栏
 st.header("输入点货资料")
-st.dataframe(
-    st.session_state.df,
-    use_container_width=True,
-    hide_index=True  # 隐藏左侧默认行号
-)
 
 # 下拉+手动输入 DESCRIPTION
 description = st.selectbox("DESCRIPTION (可选或手动输入)", options=[""] + description_options)
@@ -102,7 +97,7 @@ if st.button("添加记录"):
 
 # 显示表格
 st.header("记录总览")
-st.dataframe(st.session_state.df)
+st.table(st.session_state.df)  # 用table，不显示左侧索引
 
 # 下载按钮 (Excel 版)
 def to_excel(df):
