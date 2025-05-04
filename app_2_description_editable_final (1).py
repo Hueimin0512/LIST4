@@ -97,7 +97,7 @@ if st.button("添加记录"):
 
 # 显示表格（手机端友好横排版 & 去掉左侧索引）
 st.header("记录总览")
-st.TABLE(st.session_state.df)
+st.table(st.session_state.df)
 
 # 下载按钮 (Excel 版)
 def to_excel(df):
